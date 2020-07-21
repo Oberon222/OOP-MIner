@@ -13,6 +13,17 @@ using namespace std;
 int main()
 {
 
+	int level = GeneralMenu::selectDifficultyLevel();
+	if (level == 4)
+	{
+		/*GeneralMenu::myLevel();*/
+
+		Field field();
+
+	}
+
+	
+
 	system("pause");
 	return 0;
 }

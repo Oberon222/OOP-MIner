@@ -11,11 +11,27 @@ using namespace std;
 
 HANDLE  hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
-class GeneralManu
+class GeneralMenu
 {
-	int actino;
+	
 public:
-	int GetDifficultyLevel()
+
+	static int myLevel()
+	{
+		int myHorizonralCells;
+		int myVerticalCells;
+		int myCountMine;
+		cout << "Enter count of horizontal cells: ";
+		cin >> myHorizonralCells;
+		cout << "Enter count of vertical cells: ";
+		cin >> myVerticalCells;
+		cout << "Enter count mine: ";
+		cin >> myCountMine;
+
+		return myHorizonralCells, myVerticalCells, myCountMine;
+	}
+
+	static int selectDifficultyLevel()
 	{
 		int difficultyLevel;
 		cout<<"Choose the difficulty level of the game: "

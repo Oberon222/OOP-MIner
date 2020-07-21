@@ -11,16 +11,18 @@ using namespace std;
 
 class Field
 {
-	int horizontalyCount;
-	int verticalyCount;
-	int minesCount; // перейменувати, у Game.h теж є minesCount
+protected:
+
+	int horizontalCount;
+	int verticalCount;
+	int minesCount; 
 	int unopenedCellsCount;
 	char** cellsValues;
 	
 
 	void ShowHorizontalNumbers() {
 		cout << "  ";
-		for (int i = 0; i < verticalyCount; i++) {
+		for (int i = 0; i < verticalCount; i++) {
 			cout << setw(3) << i + 1;
 		}
 		cout << endl;
@@ -28,70 +30,56 @@ class Field
 	}
 
 	void ShowHorizontalSeparator() {
-		for (int i = 0; i < verticalyCount; i++) {
+		for (int i = 0; i < verticalCount; i++) {
 			cout << setw(3) << "---";
 		}
 		cout << endl;
 	}
 
-public:
-
-	Field() { }
-
-	Field(int horizontalyCount, int verticalyCount, int minesCount, int unopenedCellsCount, char cellsValues)
-	{
-		if (horizontalyCount <= 26)
-		{
-			this->horizontalyCount = horizontalyCount;
-		}
-	
-		this->verticalyCount = verticalyCount;
-		this->minesCount = minesCount;
-		this->unopenedCellsCount = unopenedCellsCount;
-		char** Field = new char* [horizontalyCount];
-		FieldInit();
-	}
-
-	int GetHorizontalyCount()
-	{
-		return horizontalyCount;
-	}
-
-	int GetVerticalyCount()
-	{
-		return verticalyCount;
-	}
-
-	int GetMinesCount()
-	{
-		return minesCount;
-	}
-
-	char** GetFieldChars() {
-		return cellsValues;
-	}
-
 	void FieldInit() {
 
-		cellsValues = new char* [horizontalyCount];
-		for (int x = 0; x < horizontalyCount; x++)
+		cellsValues = new char* [horizontalCount];
+		for (int x = 0; x < horizontalCount; x++)
 		{
-			cellsValues[x] = new char[verticalyCount];
-			for (int y = 0; y < verticalyCount; y++)
+			cellsValues[x] = new char[verticalCount];
+			for (int y = 0; y < verticalCount; y++)
 			{
 				cellsValues[x][y] = ' ';
 			}
 		}
-		unopenedCellsCount = horizontalyCount * verticalyCount;
+		unopenedCellsCount = horizontalCount * verticalCount;
 	}
 
-	void ShowField() {
-		ShowHorizontalNumbers();
-		ShowHorizontalSeparator();
-		for (int i = 0; i < horizontalyCount; i++) {
+	
+
+	
+
+public:
+
+	Field() : horizontalCount(8), verticalCount(8), minesCount(10)  { }
+
+	Field(int horizontalyCount, int verticalyCount, int minesCount  /*char cellsValues*/)
+	{
+		if (horizontalyCount <= 26)
+		{
+			this->horizontalCount = horizontalyCount;
+		}
+	
+
+	
+		this->verticalCount = verticalyCount;
+		this->minesCount = minesCount;
+		this->unopenedCellsCount = verticalyCount* horizontalyCount;
+		char** cellsValues = new char* [horizontalyCount];
+		FieldInit();
+	}
+
+	void drawField()
+	{
+		for (int i = 0; i < horizontalCount; i++) {
 			cout << (char)(i + 65) << "|";
 
-			for (int j = 0; j < verticalyCount; j++) {
+			for (int j = 0; j < verticalCount; j++) {
 				if (cellsValues[i][j] == '0') {
 					cout << setw(3) << '0';
 				}
@@ -117,8 +105,8 @@ public:
 		int mineY = 0;
 		for (int i = 0; i < minesCount; )
 		{
-			mineX = rand() % horizontalyCount;
-			mineY = rand() % verticalyCount;
+			mineX = rand() % horizontalCount;
+			mineY = rand() % verticalCount;
 			/*cout << "X" << mineX << "-Y" << mineY<<endl;*/   // ï³äêàçêà, êîîðäèíàòè ì³í
 			if (cellsValues[mineX][mineY] == ' ') {
 
@@ -127,14 +115,47 @@ public:
 			}
 		}
 	}
+	int GetHorizontalyCount()
+	{
+		return horizontalCount;
+	}
+
+	int GetVerticalyCount()
+	{
+		return verticalCount;
+	}
+
+	int GetMinesCount()
+	{
+		return minesCount;
+	}
+
+	int GetUnopenedCellsCount()
+	{
+		return unopenedCellsCount;
+	}
+
+	char** GetFieldChars() {
+		return cellsValues;
+	}
+
+	
+
+	void ShowField() {
+		ShowHorizontalNumbers();
+		ShowHorizontalSeparator();
+		drawField();
+	}
+
+	
 
 	void Show_Mines( int colorCode) {
 		ShowHorizontalNumbers();
 		ShowHorizontalSeparator();
-		for (int i = 0; i < horizontalyCount; i++) {
+		for (int i = 0; i < horizontalCount; i++) {
 			cout << (char)(i + 65) << "|";
 
-			for (int j = 0; j < verticalyCount; j++) {
+			for (int j = 0; j < verticalCount; j++) {
 				if (cellsValues[i][j] == ' ') {
 					SetConsoleTextAttribute(hConsole, 6);
 
@@ -159,7 +180,7 @@ public:
 	int Get_Count_Of_Mines(int x, int y) {
 		int count = 0;
 		if (cellsValues[x][y] != 'x') {
-			for (int i = x - 1; i <= x + 1 && i < horizontalyCount; i++) {
+			for (int i = x - 1; i <= x + 1 && i < horizontalCount; i++) {
 				for (int j = y - 1; j <= y + 1; j++) {
 					if (i >= 0 && j >= 0) {
 						if (cellsValues[i][j] == 'x') count++;
@@ -172,4 +193,8 @@ public:
 		return count;
 	}
 
+	char* operator [](int x)
+	{
+		return cellsValues[x];
+	}
 };
