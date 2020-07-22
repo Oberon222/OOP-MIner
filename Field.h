@@ -50,15 +50,29 @@ protected:
 		unopenedCellsCount = horizontalCount * verticalCount;
 	}
 
-	
-
-	
-
 public:
+
+	Field(int * parameters)
+	{
+		Field(parameters[0], parameters[1], parameters[2]);
+	}
+
+	Field(int level)
+	{
+		switch (level)
+		{
+		case 1: Field(8,8,10); break;
+
+		case 2: Field(20,20,20); break;
+
+		case 3: Field(25, 25, 25); break;
+		}
+
+	}
 
 	Field() : horizontalCount(8), verticalCount(8), minesCount(10)  { }
 
-	Field(int horizontalyCount, int verticalyCount, int minesCount  /*char cellsValues*/)
+	Field(int horizontalyCount, int verticalyCount, int minesCount)
 	{
 		if (horizontalyCount <= 26)
 		{
@@ -139,6 +153,11 @@ public:
 		return cellsValues;
 	}
 
+	void SetUnopenedCellsCount(int value)
+	{
+		unopenedCellsCount = value;
+
+	}
 	
 
 	void ShowField() {
@@ -146,8 +165,6 @@ public:
 		ShowHorizontalSeparator();
 		drawField();
 	}
-
-	
 
 	void Show_Mines( int colorCode) {
 		ShowHorizontalNumbers();

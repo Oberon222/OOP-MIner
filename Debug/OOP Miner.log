@@ -1,5 +1,35 @@
 ﻿  Source.cpp
+C:\Users\pavel\source\repos\OOP Miner\OOP Miner\Game.h(13,9): error C2374: 'hConsole': redefinition; multiple initialization
+C:\Users\pavel\source\repos\OOP Miner\OOP Miner\Text Helper.h(8): message : see declaration of 'hConsole'
 C:\Users\pavel\source\repos\OOP Miner\OOP Miner\Game.h(17,13): error C3646: 'field': unknown override specifier
 C:\Users\pavel\source\repos\OOP Miner\OOP Miner\Game.h(17,13): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-C:\Users\pavel\source\repos\OOP Miner\OOP Miner\Game.h(282,23): error C2061: syntax error: identifier 'Field'
-C:\Users\pavel\source\repos\OOP Miner\OOP Miner\Game.h(103,13): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\pavel\source\repos\OOP Miner\OOP Miner\Game.h(21,2): error C2061: syntax error: identifier 'Field'
+C:\Users\pavel\source\repos\OOP Miner\OOP Miner\Game.h(23,1): error C2039: 'field': is not a member of 'Game'
+C:\Users\pavel\source\repos\OOP Miner\OOP Miner\Game.h(15): message : see declaration of 'Game'
+C:\Users\pavel\source\repos\OOP Miner\OOP Miner\Game.h(23,17): error C2065: 'field': undeclared identifier
+C:\Users\pavel\source\repos\OOP Miner\OOP Miner\Game.h(31,7): error C2065: 'field': undeclared identifier
+C:\Users\pavel\source\repos\OOP Miner\OOP Miner\Game.h(32,42): error C2065: 'field': undeclared identifier
+C:\Users\pavel\source\repos\OOP Miner\OOP Miner\Game.h(35,11): error C2065: 'field': undeclared identifier
+C:\Users\pavel\source\repos\OOP Miner\OOP Miner\Game.h(39,4): error C2065: 'field': undeclared identifier
+C:\Users\pavel\source\repos\OOP Miner\OOP Miner\Game.h(40,4): error C2065: 'field': undeclared identifier
+C:\Users\pavel\source\repos\OOP Miner\OOP Miner\Game.h(40,32): error C2065: 'field': undeclared identifier
+C:\Users\pavel\source\repos\OOP Miner\OOP Miner\Game.h(46,3): error C2065: 'field': undeclared identifier
+C:\Users\pavel\source\repos\OOP Miner\OOP Miner\Game.h(56,3): error C2065: 'field': undeclared identifier
+C:\Users\pavel\source\repos\OOP Miner\OOP Miner\Game.h(69,27): error C2065: 'field': undeclared identifier
+C:\Users\pavel\source\repos\OOP Miner\OOP Miner\Game.h(70,8): error C2065: 'field': undeclared identifier
+C:\Users\pavel\source\repos\OOP Miner\OOP Miner\Game.h(88,8): error C2065: 'field': undeclared identifier
+C:\Users\pavel\source\repos\OOP Miner\OOP Miner\Game.h(102,27): error C2065: 'field': undeclared identifier
+C:\Users\pavel\source\repos\OOP Miner\OOP Miner\Game.h(103,8): error C2065: 'field': undeclared identifier
+C:\Users\pavel\source\repos\OOP Miner\OOP Miner\Game.h(119,8): error C2065: 'field': undeclared identifier
+C:\Users\pavel\source\repos\OOP Miner\OOP Miner\Game.h(138,39): error C2065: 'field': undeclared identifier
+C:\Users\pavel\source\repos\OOP Miner\OOP Miner\Game.h(141,8): error C2065: 'field': undeclared identifier
+C:\Users\pavel\source\repos\OOP Miner\OOP Miner\Game.h(141,41): error C2065: 'field': undeclared identifier
+C:\Users\pavel\source\repos\OOP Miner\OOP Miner\Game.h(145,7): error C2065: 'field': undeclared identifier
+C:\Users\pavel\source\repos\OOP Miner\OOP Miner\Game.h(156,3): error C2065: 'field': undeclared identifier
+C:\Users\pavel\source\repos\OOP Miner\OOP Miner\Game.h(162,4): error C2065: 'field': undeclared identifier
+C:\Users\pavel\source\repos\OOP Miner\OOP Miner\Field.h(116,13): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\pavel\source\repos\OOP Miner\OOP Miner\General Menu.h(12,9): error C2374: 'hConsole': redefinition; multiple initialization
+C:\Users\pavel\source\repos\OOP Miner\OOP Miner\Text Helper.h(8): message : see declaration of 'hConsole'
+C:\Users\pavel\source\repos\OOP Miner\OOP Miner\Source.cpp(33,24): error C2440: '<function-style-cast>': cannot convert from 'Field' to 'Game'
+C:\Users\pavel\source\repos\OOP Miner\OOP Miner\Source.cpp(33,24): message : No constructor could take the source type, or constructor overload resolution was ambiguous
+C:\Users\pavel\source\repos\OOP Miner\OOP Miner\Source.cpp(33,14): error C2064: term does not evaluate to a function taking 1 arguments

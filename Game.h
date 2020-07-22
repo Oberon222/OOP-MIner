@@ -12,11 +12,16 @@ using namespace std;
 
 HANDLE  hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
-class Game /*: public Field*/
+class Game 
 {
 	Field field;
 	
 public:
+
+	Game(Field field)
+	{
+		this->field = field;
+	}
 
 	int get_count_of_mines(int x, int y)
 	{
@@ -32,7 +37,7 @@ public:
 				}
 			}
 			field[x][y] = 48 + count;
-			field.GetUnopenedCellsCount() -= 1;
+			field.SetUnopenedCellsCount(field.GetUnopenedCellsCount()-1);
 		}
 		return count;
 	}
@@ -40,21 +45,18 @@ public:
 	bool you_Win() {
 		field.Show_Mines(10);
 
-		cout << "Y O U    W O N ! ! !" << endl;
-		SetConsoleTextAttribute(hConsole, 7);
-		cout << endl;
-		cout << "Game Over" << endl;
+		TextHelper::ShowTextWithColor("Y O U    W O N ! ! !",10);
+		TextHelper::ShowTextWithColor("Game Over", 10);
 
 		return false; 
 	};
 
 	bool you_Are_Loser() {
+
 		field.Show_Mines(12);
 
-		cout << "L O S E R ! ! !" << endl;
-		SetConsoleTextAttribute(hConsole, 7);
-		cout << endl;
-		cout << "Game Over" << endl;
+		TextHelper::ShowTextWithColor("L O S E R ! ! !", 12);
+		TextHelper::ShowTextWithColor("Game Over", 12);
 
 		return false;
 	};
@@ -133,10 +135,10 @@ public:
 		if (get_count_of_mines(x, y) == 0) {
 			check_Zero(x, y);
 		};
-		cout << "no open cells remain " <<   unopenedCellsCount << endl;
+		cout << "no open cells remain " <<  field.GetUnopenedCellsCount() << endl;
 
 
-		if (unopenedCellsCount == field.GetMinesCount()) {  //ÂÈÃÐÀØ
+		if ( field.GetUnopenedCellsCount() == field.GetMinesCount()) {  //ÂÈÃÐÀØ
 			return you_Win();
 		}
 
@@ -147,7 +149,7 @@ public:
 		return true;
 	}
 
-	void PlayGame(/*Field field*/)
+	void StartGame(/*Field field*/)
 	{
 
 		/*field.FieldInit();*/

@@ -12,15 +12,28 @@ using namespace std;
 
 int main()
 {
+	Field field;
 
 	int level = GeneralMenu::selectDifficultyLevel();
+
 	if (level == 4)
 	{
-		/*GeneralMenu::myLevel();*/
 
-		Field field();
+		int* parameters = GeneralMenu::myLevel();
+		field = Field(parameters);
 
 	}
+	else
+	{
+
+		field =  Field(level);
+
+	}
+
+	Game game = Game(field);
+
+	game.StartGame();
+
 
 	
 

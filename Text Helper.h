@@ -5,6 +5,8 @@
 #include <Windows.h>
 #include <conio.h>
 using namespace std;
+HANDLE  hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+
 
 class TextHelper
 {
