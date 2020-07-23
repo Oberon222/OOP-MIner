@@ -4,12 +4,8 @@
 #include <thread>
 #include <Windows.h>
 #include <conio.h>
-#include"Field.h"
-#include"Game.h"
-#include"Text Helper.h"
 using namespace std;
 
-HANDLE  hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
 class GeneralMenu
 {

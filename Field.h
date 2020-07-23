@@ -1,12 +1,12 @@
 ﻿#pragma once
 #include <iostream>
 #include <string>
-#include "General Menu.h"
 #include <thread>
 #include <Windows.h>
 #include <conio.h>
-#include"Game.h"
 #include"Text Helper.h"
+#include<ctime>
+#include <iomanip>
 using namespace std;
 
 class Field

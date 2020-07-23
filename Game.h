@@ -10,8 +10,6 @@
 #include"Text Helper.h"
 using namespace std;
 
-HANDLE  hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-
 class Game 
 {
 	Field field;
