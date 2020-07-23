@@ -147,7 +147,7 @@ public:
 		return true;
 	}
 
-	void StartGame(/*Field field*/)
+	void StartGame()
 	{
 
 		/*field.FieldInit();*/

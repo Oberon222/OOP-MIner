@@ -61,12 +61,60 @@ public:
 	{
 		switch (level)
 		{
-		case 1: Field(8,8,10); break;
+		case 1: 
+			TextHelper::ShowTextWithColor("You have chosen the EASY level", 10);
+			this->horizontalCount=8;
+			this->verticalCount = 8;
+			this->minesCount = 10;
+			break;
 
-		case 2: Field(20,20,20); break;
+		case 2:
+			TextHelper::ShowTextWithColor("You have chosen the MEDIUM level", 14);
+			this->horizontalCount = 15;
+			this->verticalCount = 15;
+			this->minesCount = 20;
+			
+			break;
 
-		case 3: Field(25, 25, 25); break;
+		case 3: 
+			TextHelper::ShowTextWithColor("You have chosen the HARD level", 12);
+			this->horizontalCount = 20;
+			this->verticalCount = 20;
+			this->minesCount = 30;
+			
+			break;
+
+		case 4:
+			TextHelper::ShowTextWithColor("You can create your own level", 13);
+
+			int myHorizonralCells;
+			int myVerticalCells;
+			int myCountMine;
+			cout << "Enter vertical count: ";
+			cin >> myHorizonralCells;
+			if (myHorizonralCells > 26)
+			{
+				cout << "Too many cells, it'll be set 26" << endl;
+				myHorizonralCells = 26;
+			}
+			cout << "Enter  horizontal count: ";
+			cin >> myVerticalCells;
+			
+			cout << "Enter mines count: ";
+			cin >> myCountMine;
+			if (myCountMine >= myHorizonralCells * myVerticalCells)
+			{
+				myCountMine = myHorizonralCells * myVerticalCells - 1;
+				cout << "Too many mines, it'll be set to" << myCountMine << endl;
+			}
+
+			this->horizontalCount = myHorizonralCells;
+			this->verticalCount = myVerticalCells;
+			this->minesCount = myCountMine;
+			
+
 		}
+		FieldInit();
 
 	}
 
@@ -79,8 +127,6 @@ public:
 			this->horizontalCount = horizontalyCount;
 		}
 	
-
-	
 		this->verticalCount = verticalyCount;
 		this->minesCount = minesCount;
 		this->unopenedCellsCount = verticalyCount* horizontalyCount;
@@ -90,6 +136,18 @@ public:
 
 	void drawField()
 	{
+		cout << "  ";
+
+		for (int i = 0; i < verticalCount; i++) {
+			cout << setw(3) << i + 1;
+		}
+		cout << endl;
+		cout << "   ";
+		for (int i = 0; i < verticalCount; i++) {
+			cout << setw(3) << "---";
+		}
+		cout << endl;
+
 		for (int i = 0; i < horizontalCount; i++) {
 			cout << (char)(i + 65) << "|";
 

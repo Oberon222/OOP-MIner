@@ -16,25 +16,11 @@ int main()
 
 	int level = GeneralMenu::selectDifficultyLevel();
 
-	if (level == 4)
-	{
-
-		int* parameters = GeneralMenu::myLevel();
-		field = Field(parameters);
-
-	}
-	else
-	{
-
 		field =  Field(level);
-
-	}
 
 	Game game = Game(field);
 
 	game.StartGame();
-
-
 	
 
 	system("pause");
