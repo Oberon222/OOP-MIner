@@ -111,9 +111,8 @@ public:
 			this->horizontalCount = myHorizonralCells;
 			this->verticalCount = myVerticalCells;
 			this->minesCount = myCountMine;
-			
-
 		}
+		
 		FieldInit();
 
 	}
@@ -214,7 +213,6 @@ public:
 	void SetUnopenedCellsCount(int value)
 	{
 		unopenedCellsCount = value;
-
 	}
 	
 
@@ -236,7 +234,6 @@ public:
 
 					cout << setw(3) << '*';
 					SetConsoleTextAttribute(hConsole, 7);
-
 				}
 				else {
 					SetConsoleTextAttribute(hConsole, colorCode);
